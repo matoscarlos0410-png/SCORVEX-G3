@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#050713">
+  <title>SCORVEX G3</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div id="boot">
+    <div class="boot-logo">SCOR<span>VEX</span></div>
+    <div class="loader">
+      <i></i>
+    </div>
+    <small>INICIALIZANDO NÚCLEO G3...</small>
+  </div>
+
+  <header class="topbar">
+
+    <div class="brand">
+      <div class="logo">S</div>
+
+      <div>
+        <b>SCORVEX</b>
+        <small>NEON FRONTIER • G3</small>
+      </div>
+    </div>
+
+    <div class="top-actions">
+      <button id="soundBtn">🔊</button>
+      <button id="pauseBtn">Ⅱ</button>
+    </div>
+
+  </header>
+
+
+  <main>
+
+    <!-- =========================
+         MENÚ PRINCIPAL
+    ========================== -->
+
+    <section id="menu" class="screen active">
+
+      <div class="hero">
+
+        <div class="status">
+          ● SISTEMA ONLINE · SECTOR
+          <span id="menuSector">01</span>
+        </div>
+
+        <h1>
+          SCOR<span>VEX</span>
+        </h1>
+
+        <h2>NEON FRONTIER</h2>
+
+        <p class="lead">
+          Combate · Exploración · Evolución
+        </p>
+
+
+        <!-- LAS 3 BASES -->
+
+        <div class="pillars">
+
+          <article>
+
+            <div class="pillar-icon">⚔</div>
+
+            <h3>COMBATE</h3>
+
+            <p>
+              Combos, dash, energía y habilidades
+              contra oleadas de enemigos.
+            </p>
+
+          </article>
+
+
+          <article>
+
+            <div class="pillar-icon">✦</div>
+
+            <h3>EXPLORACIÓN</h3>
+
+            <p>
+              Recorre sectores, encuentra núcleos
+              y abre nuevos territorios.
+            </p>
+
+          </article>
+
+
+          <article>
+
+            <div class="pillar-icon">◆</div>
+
+            <h3>PROGRESIÓN</h3>
+
+            <p>
+              Sube de nivel, compra mejoras,
+              desbloquea habilidades y domina el mapa.
+            </p>
+
+          </article>
+
+        </div>
+
+
+        <!-- BOTONES -->
+
+        <div class="menu-buttons">
+
+          <button
+            class="primary big"
+            id="playBtn">
+            ▶ NUEVA PARTIDA
+          </button>
+
+          <button
+            class="big"
+            id="continueBtn">
+            ↻ CONTINUAR
+          </button>
+
+          <button id="controlsBtn">
+            ⌨ CONTROLES
+          </button>
+
+          <button id="resetBtn">
+            ♻ REINICIAR DATOS
+          </button>
+
+        </div>
+
+
+        <!-- ESTADÍSTICAS -->
+
+        <div class="menu-stats">
+
+          <span>
+            🏆 RÉCORD
+            <b id="bestScore">0</b>
+          </span>
+
+          <span>
+            🌌 SECTOR
+            <b id="bestZone">1</b>
+          </span>
+
+          <span>
+            ⚡ G3 ONLINE
+          </span>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         JUEGO
+    ========================== -->
+
+    <section id="gameScreen" class="screen">
+
+      <div class="game-layout">
+
+
+        <!-- HUD -->
+
+        <aside class="hud">
+
+          <div class="hud-head">
+
+            <b>SCORVEX</b>
+
+            <span id="zoneName">
+              SECTOR 01
+            </span>
+
+          </div>
+
+
+          <div class="player-card">
+
+            <div class="avatar">
+              S
+            </div>
+
+            <div>
+
+              <b id="playerRank">
+                RECLUTA
+              </b>
+
+              <small>
+                NIVEL
+                <span id="level">1</span>
+              </small>
+
+            </div>
+
+          </div>
+
+
+          <!-- HP -->
+
+          <div class="stat">
+
+            <label>
+              HP
+
+              <b id="hpText">
+                100 / 100
+              </b>
+            </label>
+
+            <div class="bar hp">
+              <i id="hpBar"></i>
+            </div>
+
+          </div>
+
+
+          <!-- ENERGÍA -->
+
+          <div class="stat">
+
+            <label>
+              ENERGÍA
+
+              <b id="energyText">
+                100 / 100
+              </b>
+            </label>
+
+            <div class="bar energy">
+              <i id="energyBar"></i>
+            </div>
+
+          </div>
+
+
+          <!-- XP -->
+
+          <div class="stat">
+
+            <label>
+              XP
+
+              <b id="xpText">
+                0 / 100
+              </b>
+            </label>
+
+            <div class="bar xp">
+              <i id="xpBar"></i>
+            </div>
+
+          </div>
+
+
+          <!-- ESTADÍSTICAS -->
+
+          <div class="quick-stats">
+
+            <span>
+              💰
+              <b id="coins">0</b>
+            </span>
+
+            <span>
+              ⭐
+              <b id="score">0</b>
+            </span>
+
+            <span>
+              🔥
+              <b id="combo">0</b>
+            </span>
+
+          </div>
+
+
+          <!-- MISIÓN -->
+
+          <div class="mission">
+
+            <small>
+              MISIÓN
+            </small>
+
+            <b id="missionText">
+              Derrota enemigos
+            </b>
+
+            <span id="missionProgress">
+              0 / 5
+            </span>
+
+          </div>
+
+
+          <!-- HABILIDAD -->
+
+          <div class="skill-card">
+
+            <div>
+
+              <b>
+                ⚡ NOVA
+              </b>
+
+              <small>
+                E · 30 energía
+              </small>
+
+            </div>
+
+            <span id="skillCd">
+              LISTO
+            </span>
+
+          </div>
+
+
+          <button id="shopBtn">
+            🛒 MEJORAS
+          </button>
+
+          <button id="inventoryBtn">
+            🎒 INVENTARIO
+          </button>
+
+          <button id="menuBtn">
+            ⌂ MENÚ
+          </button>
+
+        </aside>
+
+
+        <!-- ARENA -->
+
+        <div class="arena">
+
+          <canvas
+            id="game"
+            width="1200"
+            height="700">
+          </canvas>
+
+
+          <div
+            class="sector-banner"
+            id="sectorBanner">
+
+            SECTOR 01 · NEON DISTRICT
+
+          </div>
+
+
+          <div
+            class="wave"
+            id="waveText">
+
+            OLEADA 1
+
+          </div>
+
+
+          <!-- BARRA DEL JEFE -->
+
+          <div
+            class="boss-ui hidden"
+            id="bossUI">
+
+            <b>
+              ☠ JEFE ·
+              <span id="bossName">
+                OVERLORD
+              </span>
+            </b>
+
+            <div class="bossbar">
+
+              <i id="bossBar"></i>
+
+            </div>
+
+          </div>
+
+
+          <div class="objective">
+
+            WASD / FLECHAS ·
+            ESPACIO ATAQUE ·
+            E HABILIDAD ·
+            SHIFT DASH
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       VENTANA MODAL
+  ========================== -->
+
+  <div
+    class="modal hidden"
+    id="modal">
+
+    <div class="modal-card">
+
+      <button
+        class="close"
+        id="closeModal">
+
+        ×
+
+      </button>
+
+      <h2 id="modalTitle"></h2>
+
+      <div id="modalBody"></div>
+
+    </div>
+
+  </div>
+
+
+  <!-- JAVASCRIPT -->
+
+  <script src="game.js"></script>
+
+</body>
+</html>
