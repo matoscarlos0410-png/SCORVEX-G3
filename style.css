@@ -1,0 +1,1141 @@
+*{
+  box-sizing:border-box;
+}
+
+html,
+body{
+  margin:0;
+  min-height:100%;
+  background:#040611;
+  color:#edf5ff;
+  font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+  overflow-x:hidden;
+}
+
+/* =========================
+   GENERAL
+========================= */
+
+button{
+  border:1px solid #293a69;
+  background:#0b1230;
+  color:#edf6ff;
+  border-radius:10px;
+  padding:12px 16px;
+  font-weight:800;
+  cursor:pointer;
+  transition:.18s;
+}
+
+button:hover{
+  transform:translateY(-2px);
+  border-color:#39e8ff;
+  box-shadow:0 0 24px #20dfff30;
+}
+
+.hidden{
+  display:none!important;
+}
+
+.screen{
+  display:none;
+  min-height:100vh;
+  position:relative;
+  z-index:1;
+}
+
+.screen.active{
+  display:block;
+}
+
+
+/* =========================
+   FONDO
+========================= */
+
+.screen:before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+
+  background:
+    radial-gradient(
+      circle at 20% 20%,
+      #193d8030,
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 80% 70%,
+      #7c27a020,
+      transparent 28%
+    ),
+    linear-gradient(
+      #030510,
+      #080a19
+    );
+}
+
+
+/* =========================
+   BARRA SUPERIOR
+========================= */
+
+.topbar{
+  height:66px;
+
+  position:fixed;
+  z-index:20;
+
+  inset:0 0 auto;
+
+  background:#050815d9;
+
+  border-bottom:
+    1px solid #26355c;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  padding:0 22px;
+
+  backdrop-filter:blur(12px);
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.logo{
+  width:39px;
+  height:39px;
+
+  display:grid;
+  place-items:center;
+
+  border-radius:10px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #2de8ff,
+      #765aff
+    );
+
+  font-size:24px;
+  font-weight:1000;
+
+  box-shadow:
+    0 0 25px #20ddff45;
+}
+
+.brand b{
+  display:block;
+  letter-spacing:2px;
+}
+
+.brand small{
+  display:block;
+  color:#66769b;
+  font-size:8px;
+  letter-spacing:2px;
+}
+
+.top-actions{
+  display:flex;
+  gap:7px;
+}
+
+.top-actions button{
+  font-size:18px;
+  padding:8px 12px;
+}
+
+
+/* =========================
+   MENÚ
+========================= */
+
+.hero{
+  position:relative;
+
+  max-width:1080px;
+
+  min-height:100vh;
+
+  margin:auto;
+
+  padding:
+    100px 22px 40px;
+
+  display:flex;
+  flex-direction:column;
+
+  justify-content:center;
+  align-items:center;
+
+  text-align:center;
+}
+
+.status{
+  font-size:11px;
+
+  letter-spacing:4px;
+
+  color:#48e8ff;
+}
+
+.hero h1{
+  margin:18px 0 0;
+
+  font-size:
+    clamp(76px,15vw,155px);
+
+  line-height:.8;
+
+  letter-spacing:-8px;
+
+  text-shadow:
+    0 0 25px #2be4ff55,
+    0 0 80px #6f5bff35;
+}
+
+.hero h1 span{
+  color:#44eaff;
+}
+
+.hero h2{
+  margin:15px 0 0;
+
+  font-size:15px;
+
+  letter-spacing:8px;
+
+  color:#8291b7;
+}
+
+.lead{
+  color:#aebbd7;
+  font-size:18px;
+}
+
+
+/* =========================
+   LAS 3 BASES
+========================= */
+
+.pillars{
+  width:100%;
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(3,1fr);
+
+  gap:14px;
+
+  margin:30px 0;
+}
+
+.pillars article{
+  position:relative;
+
+  overflow:hidden;
+
+  text-align:left;
+
+  padding:22px;
+
+  border:
+    1px solid #273862;
+
+  background:#0a1027cc;
+
+  border-radius:16px;
+
+  transition:.25s;
+}
+
+.pillars article:hover{
+  transform:translateY(-5px);
+
+  border-color:#3be7ff;
+
+  box-shadow:
+    0 0 30px #22dfff20;
+}
+
+.pillars article:after{
+  content:"";
+
+  position:absolute;
+
+  width:100px;
+  height:100px;
+
+  right:-35px;
+  bottom:-50px;
+
+  background:#25dfff18;
+
+  border-radius:50%;
+
+  filter:blur(5px);
+}
+
+.pillar-icon{
+  font-size:28px;
+  color:#5deaff;
+}
+
+.pillars h3{
+  margin:8px 0;
+
+  color:#5eeaff;
+
+  letter-spacing:2px;
+}
+
+.pillars p{
+  margin:0;
+
+  color:#a8b5d1;
+
+  line-height:1.5;
+
+  font-size:13px;
+}
+
+
+/* =========================
+   BOTONES MENÚ
+========================= */
+
+.menu-buttons{
+  display:flex;
+
+  gap:10px;
+
+  justify-content:center;
+
+  flex-wrap:wrap;
+}
+
+.big{
+  padding:14px 20px;
+}
+
+.primary{
+  background:
+    linear-gradient(
+      135deg,
+      #18dfff,
+      #7458ff
+    );
+
+  border:0;
+}
+
+.menu-stats{
+  margin-top:25px;
+
+  display:flex;
+
+  gap:25px;
+
+  color:#7584a5;
+
+  font-size:11px;
+}
+
+.menu-stats b{
+  color:#dbe8ff;
+}
+
+
+/* =========================
+   ZONA DEL JUEGO
+========================= */
+
+.game-layout{
+  position:relative;
+
+  z-index:2;
+
+  max-width:1540px;
+
+  margin:82px auto 18px;
+
+  padding:0 16px;
+
+  display:grid;
+
+  grid-template-columns:
+    255px 1fr;
+
+  gap:14px;
+}
+
+
+/* =========================
+   HUD
+========================= */
+
+.hud{
+  background:#070c1eee;
+
+  border:
+    1px solid #273961;
+
+  border-radius:16px;
+
+  padding:15px;
+
+  box-shadow:
+    0 20px 60px #0008;
+}
+
+.hud-head{
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:center;
+
+  margin-bottom:16px;
+
+  letter-spacing:2px;
+}
+
+.hud-head span{
+  font-size:9px;
+  color:#55e9ff;
+}
+
+.player-card{
+  display:flex;
+
+  align-items:center;
+
+  gap:10px;
+
+  padding:10px;
+
+  border:
+    1px solid #25365e;
+
+  background:#0d1430;
+
+  border-radius:11px;
+
+  margin-bottom:14px;
+}
+
+.avatar{
+  width:40px;
+  height:40px;
+
+  border-radius:10px;
+
+  display:grid;
+
+  place-items:center;
+
+  background:
+    linear-gradient(
+      135deg,
+      #26e2ff,
+      #6e58ff
+    );
+
+  font-weight:1000;
+}
+
+.player-card b{
+  display:block;
+
+  font-size:11px;
+}
+
+.player-card small{
+  color:#7888aa;
+  font-size:10px;
+}
+
+
+/* =========================
+   BARRAS
+========================= */
+
+.stat{
+  margin:12px 0;
+}
+
+.stat label{
+  display:flex;
+
+  justify-content:space-between;
+
+  color:#8f9fbd;
+
+  font-size:10px;
+
+  margin-bottom:5px;
+}
+
+.bar{
+  height:8px;
+
+  background:#151d38;
+
+  border-radius:10px;
+
+  overflow:hidden;
+}
+
+.bar i{
+  display:block;
+
+  height:100%;
+
+  width:100%;
+
+  background:
+    linear-gradient(
+      90deg,
+      #31dfff,
+      #6658ff
+    );
+
+  box-shadow:
+    0 0 10px #36e5ff66;
+
+  transition:width .2s;
+}
+
+.bar.hp i{
+  background:
+    linear-gradient(
+      90deg,
+      #ff3f69,
+      #ff9b45
+    );
+}
+
+.bar.energy i{
+  background:
+    linear-gradient(
+      90deg,
+      #9d4dff,
+      #31e5ff
+    );
+}
+
+.bar.xp i{
+  background:
+    linear-gradient(
+      90deg,
+      #ffcf4d,
+      #5effb5
+    );
+}
+
+
+/* =========================
+   ESTADÍSTICAS
+========================= */
+
+.quick-stats{
+  display:grid;
+
+  grid-template-columns:
+    repeat(3,1fr);
+
+  gap:5px;
+
+  margin:15px 0;
+}
+
+.quick-stats span{
+  text-align:center;
+
+  padding:8px 3px;
+
+  border-radius:8px;
+
+  background:#101934;
+
+  border:
+    1px solid #263760;
+
+  font-size:11px;
+}
+
+
+/* =========================
+   MISIÓN
+========================= */
+
+.mission{
+  padding:12px;
+
+  border-radius:10px;
+
+  background:#0c1430;
+
+  border:
+    1px solid #2b3d6a;
+
+  margin:10px 0;
+}
+
+.mission small{
+  display:block;
+
+  color:#63759b;
+
+  font-size:9px;
+
+  letter-spacing:2px;
+}
+
+.mission b{
+  display:block;
+
+  font-size:12px;
+
+  margin:6px 0;
+}
+
+.mission span{
+  font-size:10px;
+
+  color:#53eaff;
+}
+
+
+/* =========================
+   HABILIDAD
+========================= */
+
+.skill-card{
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  border:
+    1px solid #473d85;
+
+  background:#151239;
+
+  padding:10px;
+
+  border-radius:10px;
+
+  margin:10px 0;
+}
+
+.skill-card b{
+  display:block;
+
+  font-size:11px;
+}
+
+.skill-card small{
+  color:#7886a9;
+
+  font-size:9px;
+}
+
+.skill-card span{
+  font-size:9px;
+
+  color:#57eaff;
+}
+
+
+/* =========================
+   BOTONES HUD
+========================= */
+
+.hud>button{
+  width:100%;
+
+  margin-top:7px;
+}
+
+
+/* =========================
+   ARENA
+========================= */
+
+.arena{
+  position:relative;
+
+  border:
+    1px solid #293c6b;
+
+  border-radius:16px;
+
+  overflow:hidden;
+
+  background:#050916;
+
+  box-shadow:
+    0 20px 70px #0009;
+}
+
+.arena canvas{
+  display:block;
+
+  width:100%;
+
+  height:auto;
+}
+
+
+/* =========================
+   INFORMACIÓN DE ARENA
+========================= */
+
+.sector-banner{
+  position:absolute;
+
+  top:15px;
+  left:15px;
+
+  color:#6cecff;
+
+  font-size:10px;
+
+  letter-spacing:2px;
+
+  padding:7px 10px;
+
+  border:
+    1px solid #2d4a7a;
+
+  background:#060b1acc;
+
+  border-radius:9px;
+}
+
+.wave{
+  position:absolute;
+
+  top:15px;
+
+  left:50%;
+
+  transform:
+    translateX(-50%);
+
+  padding:7px 14px;
+
+  border:
+    1px solid #32477a;
+
+  background:#070d22dd;
+
+  border-radius:20px;
+
+  color:#aab9d7;
+
+  font-size:10px;
+}
+
+
+/* =========================
+   JEFE
+========================= */
+
+.boss-ui{
+  position:absolute;
+
+  top:50px;
+
+  left:50%;
+
+  transform:
+    translateX(-50%);
+
+  width:min(500px,65%);
+
+  padding:8px 12px;
+
+  text-align:center;
+
+  background:#0b0814ee;
+
+  border:
+    1px solid #ff416c;
+
+  border-radius:10px;
+
+  color:#ff7892;
+
+  font-size:11px;
+}
+
+.bossbar{
+  height:8px;
+
+  background:#29131d;
+
+  border-radius:10px;
+
+  margin-top:6px;
+
+  overflow:hidden;
+}
+
+.bossbar i{
+  display:block;
+
+  width:100%;
+
+  height:100%;
+
+  background:
+    linear-gradient(
+      90deg,
+      #ff315d,
+      #ffb13a
+    );
+}
+
+
+/* =========================
+   AYUDA
+========================= */
+
+.objective{
+  position:absolute;
+
+  bottom:10px;
+
+  left:50%;
+
+  transform:
+    translateX(-50%);
+
+  font-size:9px;
+
+  color:#69799b;
+
+  white-space:nowrap;
+
+  background:#050914bb;
+
+  padding:6px 9px;
+
+  border-radius:7px;
+}
+
+
+/* =========================
+   MODALES
+========================= */
+
+.modal{
+  position:fixed;
+
+  z-index:50;
+
+  inset:0;
+
+  background:#02040bd9;
+
+  display:grid;
+
+  place-items:center;
+
+  padding:20px;
+}
+
+.modal-card{
+  position:relative;
+
+  width:min(600px,100%);
+
+  max-height:85vh;
+
+  overflow:auto;
+
+  background:#080e23;
+
+  border:
+    1px solid #334878;
+
+  border-radius:18px;
+
+  padding:25px;
+
+  box-shadow:
+    0 30px 100px #000;
+}
+
+.modal-card h2{
+  margin:0 0 18px;
+
+  color:#58e9ff;
+
+  letter-spacing:2px;
+}
+
+.close{
+  position:absolute;
+
+  right:10px;
+  top:10px;
+
+  border:0;
+
+  background:transparent;
+
+  font-size:24px;
+
+  padding:5px;
+}
+
+.grid{
+  display:grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap:9px;
+}
+
+.control{
+  padding:13px;
+
+  background:#101936;
+
+  border:
+    1px solid #263961;
+
+  border-radius:10px;
+}
+
+.control b{
+  color:#5ceaff;
+}
+
+
+/* =========================
+   TIENDA
+========================= */
+
+.shop-item,
+.inv-item{
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  gap:10px;
+
+  padding:12px;
+
+  margin:8px 0;
+
+  background:#101936;
+
+  border:
+    1px solid #263961;
+
+  border-radius:10px;
+}
+
+.shop-item small,
+.inv-item small{
+  display:block;
+
+  color:#7687a8;
+
+  margin-top:3px;
+}
+
+.shop-item button{
+  padding:8px 10px;
+}
+
+
+/* =========================
+   AVISO
+========================= */
+
+.notice{
+  padding:12px;
+
+  border-left:
+    3px solid #43e7ff;
+
+  background:#101936;
+
+  color:#aebbd4;
+
+  line-height:1.5;
+
+  border-radius:6px;
+}
+
+
+/* =========================
+   PANTALLA DE CARGA
+========================= */
+
+#boot{
+  position:fixed;
+
+  z-index:100;
+
+  inset:0;
+
+  background:#03050d;
+
+  display:grid;
+
+  place-items:center;
+
+  align-content:center;
+
+  gap:16px;
+}
+
+.boot-logo{
+  font-size:55px;
+
+  font-weight:1000;
+
+  letter-spacing:-3px;
+}
+
+.boot-logo span{
+  color:#42eaff;
+}
+
+.loader{
+  width:220px;
+
+  height:4px;
+
+  background:#121a31;
+
+  border-radius:9px;
+
+  overflow:hidden;
+}
+
+.loader i{
+  display:block;
+
+  width:45%;
+
+  height:100%;
+
+  background:
+    linear-gradient(
+      90deg,
+      #32eaff,
+      #765bff
+    );
+
+  animation:
+    load 1s ease-in-out infinite;
+}
+
+@keyframes load{
+
+  from{
+    transform:translateX(-100%);
+  }
+
+  to{
+    transform:translateX(500%);
+  }
+
+}
+
+#boot small{
+  color:#596989;
+
+  font-size:9px;
+
+  letter-spacing:3px;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:900px){
+
+  .pillars{
+    grid-template-columns:1fr;
+  }
+
+  .game-layout{
+    grid-template-columns:1fr;
+  }
+
+  .hud{
+    order:2;
+  }
+
+  .arena{
+    order:1;
+  }
+
+  .objective{
+    display:none;
+  }
+
+}
+
+@media(max-width:520px){
+
+  .topbar{
+    padding:0 10px;
+  }
+
+  .brand small{
+    display:none;
+  }
+
+  .hero h1{
+    letter-spacing:-4px;
+  }
+
+  .menu-stats{
+    gap:9px;
+
+    flex-wrap:wrap;
+
+    justify-content:center;
+  }
+
+  .game-layout{
+    padding:0 7px;
+  }
+
+  .hud{
+    padding:12px;
+  }
+
+  .grid{
+    grid-template-columns:1fr;
+  }
+
+}
